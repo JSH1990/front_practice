@@ -2,26 +2,27 @@
 <html>
 <head>
     <style>
-        a:link{
-            color: red;
-        }
-
-        a:visited{
-            color: green;
-        }
-
-        a:hover{
-            color: hotpink;
-        }
-
-        a:active{
-            color: blue;
+        .container{
+            display: grid;
         }
     </style>
 </head>
 <body>
-
-<p><a href="test" target="_blank">test</a></p>
-
+    <div class="container">
+        <div class="header">
+            <h2>HEADER</h2>
+        </div>
+        <div class="menu">
+            <a href="#">Link1</a>
+            <a href="#">Link2</a>
+        </div>
+        <div class="content">
+            <h3>h3</h3>
+            <p>content</p>
+        </div>
+        <div class="footer">
+            footer
+        </div>
+    </div>
 </body>
 </html>
