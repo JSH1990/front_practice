@@ -12,12 +12,18 @@
 <script>
 $(document).ready(function (){
     $("button").click(function (){
-        $("p").hide();
+        alert("text: " +
+        $("#test").text());
+    });
+    $("#btn2").click(function (){
+        alert("html: " + $("#test").html());
     });
 });
 </script>
 
-<p>test</p>
-<button>click</button>
+<p id="test"><b>test</b></p>
+<button id="btn1">text</button>
+<button id="btn2">html</button>
+<button></button>
 </body>
 </html>
