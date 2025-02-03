@@ -9,6 +9,6 @@ public class testController {
     @GetMapping("/test")
     public String test(){
         //test
-        return "node";
+        return "dom2";
     }
 }

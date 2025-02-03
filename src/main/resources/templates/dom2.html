@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+    var xhttp, txt;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
+        }
+    };
+    xhttp.open("GET", "books.xml", true);
+    xhttp.send();
+
+    function myFunction(xml) {
+        let xmlDoc = xml.responseXML;
+        let x = xmlDoc.getElementsByTagName("book")[0].attributes;
+        txt = x.getNamedItem("category").nodeValue + "<br>" + x.length;
+        document.getElementById("demo").innerHTML = txt;
+    }
+</script>
+</body>
+</html>

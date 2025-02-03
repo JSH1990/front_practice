@@ -4,27 +4,29 @@
 <p id="demo"></p>
 
 <script>
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function (){
+    let xhttp = new XMLHttpRequest(); //AJAX 요청을 보내기위한 XMLHttpRequest 객체를 생성
+    xhttp.onreadystatechange = function (){ //HTTP 요청 상태가 변경될 때마다 실행되는 함수
         if(this.readyState == 4 && this.status == 200){
             showResult(xhttp.responseXML);
         }
     };
 
+    //AJAX 요청 보내기
     xhttp.open("GET", "book.xml", true);
     xhttp.send();
 
     function showResult(xml){
         let txt = "";
-        path = "/bookstore/book/title"
+        //[0]은 안됨
+        path = "book::title"
         if(xml.evaluate){
             let nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
             let result = nodes.iterateNext();
             while (result){
-                txt += result.childNodes[0].nodeValue + "<br>";
+                txt += "<b>result.childNodes[0].nodeValue + "</b><br>"; //반복문 사용해, title 값을 하나씩 가져옴
                 result = nodes.iterateNext();
             }
-        } else if(window.ActiveXObject || xhttp.responseType == "msxml-document"){
+        } else if(window.ActiveXObject || xhttp.responseType == "msxml-document"){ //IE에서 XPath 실행
             xml.setProperty("SelectionLanguage", "XPath");
             nodes = xml.selectNodes(path);
             for (let i = 0; i < nodes.length; i++) {
