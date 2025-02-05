@@ -7,25 +7,182 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .pup_header {
+            height: 40px;
+            width: 100%;
+            background: url(../../image/ietm/version/pup_topBg.gif) repeat-x 0 0;
+            border-bottom: 1px solid #113173;
+        }
+
+        .pup_header .headerBg {
+            position: relative;
+            background: url(../../image/ietm/version/pup_topBg02.gif) no-repeat center 0;
+            height: 100%;
+            text-align: center;
+        }
+
+        .pup_header .headerBg h1 {
+            position: absolute;
+            top: 13px;
+            left: 42%;
+        }
+
+        .pup_header .headerBg h1 span {
+            float: left;
+            line-height: 19px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .pup_header .headerBg h1 > img {
+            float: left;
+            margin: -4px 5px 0 0;
+        }
+
+        .version_title {
+            border-bottom: 1px solid #a0a0a0;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+
+        .version_title > * {
+            font-size: 12px;
+            line-height: 19px;
+            color: #4d4d4d;
+        }
+
+        .version_title p + p {
+            color: #4183e6;
+        }
+
+        .version_list {
+            background: #bebebe url(../../image/ietm/version/version_bodyBg.gif) repeat 0 100%;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .version_list ul {
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        /*.version_list ul li {*/
+        /*    float: left;*/
+        /*    margin: 20px 0;*/
+        /*    padding: 25px 0;*/
+        /*}*/
+
+        /*.version_list ul li > a {*/
+        /*    width: 127px;*/
+        /*    height: 85px;*/
+        /*    float: left;*/
+        /*    text-align: center;*/
+        /*    padding-top: 35px;*/
+        /*}*/
+
+        .version_list ul li > a span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .version_list .allBook_local {
+            color: #fff;
+            font-weight: bold;
+            padding: 50px 0 0 5px;
+            height: 75px;
+            display: block;
+            background: url(../../image/ietm/version/allBook.png) no-repeat 0 0;
+        }
+
+        .version_list .originalBook {
+            width: 127px;
+            height: 128px;
+        }
+
+        .version_list .originalBook_local {
+            display: block;
+            width: 127px;
+            height: 128px;
+            background: url(../../image/ietm/version/originalBook.png) no-repeat 0 0;
+        }
+
+        .version_list .originalBook_local span {
+            color: #fff;
+            padding-left: 10px;
+        }
+
+        .version_list .changeBook {
+            width: 127px;
+            height: 128px;
+        }
+
+        .version_list .changeBook > a {
+            display: block;
+            width: 127px;
+            height: 128px;
+            background: url(../../image/ietm/version/changeBook.png) no-repeat 0 0;
+        }
+
+        .version_con_list .btn_return {
+            position: absolute;
+            left: 20px;
+            bottom: 28px;
+            display: block;
+            width: 59px;
+            height: 31px;
+            text-indent: -9999px;
+            background: url(../../image/ietm/version/btn_return.png) no-repeat 0 0;
+        }
+
+        .version_con_list .btn_return:hover {
+            width: 59px;
+            height: 31px;
+            background: url(../../image/ietm/version/btn_return_ov.png) no-repeat 0 0;
+        }
+
+        .version_con_list .btn_list {
+            position: absolute;
+            display: block;
+            right: 20px;
+            bottom: 15px;
+            width: 59px;
+            height: 31px;
+            text-indent: -9999px;
+            background: url(../../image/ietm/version/btn_list.png) no-repeat 0 0;
+        }
+
+        .version_con_list .btn_list:hover {
+            width: 59px;
+            height: 31px;
+            background: url(../../image/ietm/version/btn_list_ov.png) no-repeat 0 0;
+        }
+
+    </style>
 </head>
 <body>
 <script>
-    $(document).ready(function(){
-        initTree();
-        bindEvents();
-    });
 
-    function initTree(){
-        console.log("Tree initialized");
-    }
-
-    function bindEvents(){
-        $("button").click(function(){
-            $("p").hide();
-        });
-    }
 </script>
-<p id="test">test</p>
-<button>버튼</button>
+
+<div class="version_list" style="display: block;">
+    <ul id="avail_version_list">
+        <li><a href="javascript:void(0);" title="전체보기"
+               onclick="goVersionDetailList('all','e7258f14cc9d4711a3a2009762567507','1-1-itemid-sys','')"
+               class="allBook">전체보기</a></li>
+        <li><a href="javascript:void(0);" title="변경이력" onclick="goVersionDetailList('total','all','1-1-itemid-sys','x')"
+               class="originalBook">변경이력</a></li>
+        <li><a href="javascript:void(0);" title="건 - 2005-07-30" class="originalBook"><span>기본판</span><span>- 0 -</span><span>2005-07-30</span></a>
+        </li>
+        <li><a href="javascript:void(0);" title="변경판 - 2021-05-03"
+               onclick="goVersionDetailList('chg','sdA-284C-4A3D-9AC0-AFCD91A30441','1-1-itemid-sys','2')"
+               class="changeBook"><span>변경판</span><span>- 2 -</span><span>2021-05-03</span></a></li>
+        <li><a href="javascript:void(0);" title="변경판 - 2021-05-03"
+               onclick="goVersionDetailList('chg','4A8A9C9A-284C-4A3D-9AC0-AFCD91A30441','1-1-itemid-sys','27')"
+               class="changeBook"><span>변경판</span><span>- 27 -</span><span>2021-05-03</span></a></li>
+    </ul>
+</div>
 </body>
 </html>
