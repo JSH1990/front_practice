@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 제목</title>
+</head>
+<body>
+<canvas id="test" width="300" height="220" style="border: 1px solid black"></canvas>
+
+<script>
+    const canvas = document.getElementById("test"); //캔버스 요소 찾기
+    const ctx = canvas.getContext("2d"); //그리기 객체 만들기
+
+    ctx.beginPath();
+    ctx.lineWidth = "6";
+    ctx.strokeStyle = "red";
+    ctx.rect(5, 5, 290, 140);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.lineWidth = "10";
+    ctx.strokeStyle = "blue";
+    ctx.rect(50, 50, 150, 80);
+    ctx.stroke();
+
+    // 선그리기
+    // ctx.moveTo(0,0);
+    // ctx.lineTo(200, 100);
+    // ctx.stroke();
+
+    // 원그리기
+    // ctx.beginPath();
+    // ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    // ctx.stroke();
+
+    /*
+    * beginPath() - 새로운 길을 그리려 한다는걸 선언.(그리기없음)
+    * moveTo(x,y) - 캔버스에서 선의 시작점을 설정(그리기없음)
+    * lineTo(x,y) - 캔버스에서 선의 끝점을 설정
+    * stroke() - 선을 그린다.
+    * */
+
+
+</script>
+
+</body>
